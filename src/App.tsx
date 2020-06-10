@@ -1,11 +1,17 @@
 import React from 'react';
 
-const App = () => {
+/* Styles */
+import { GlobalStyle } from './styles/global';
+
+/* Components */
+import { Category } from './react-components/Category';
+
+export const App = () => {
    return (
-      <div>
-         <h1>Hola Mundo</h1>
-      </div>
+      <>
+         <GlobalStyle />
+         <Category />
+      </>
    )
 }
 
-export default App;
