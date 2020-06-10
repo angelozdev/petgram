@@ -4,13 +4,13 @@ import React from 'react';
 import { GlobalStyle } from './styles/global';
 
 /* Components */
-import { Category } from './react-components/Category';
+import { CategoryList } from './react-components/CategoryList';
 
 export const App = () => {
    return (
       <>
          <GlobalStyle />
-         <Category />
+         <CategoryList />
       </>
    )
 }

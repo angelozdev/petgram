@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const CategoryStyled = styled.a`
-   width : 60px;
-   height: 60px;
+   width : 55px;
+   height: 55px;
+   margin: 0 .5rem;
    display: inline-block;
 
    figure {
@@ -23,5 +24,6 @@ export const CategoryStyled = styled.a`
 
    figcaption {
       text-align: center;
+      font-size: .8rem;
    }
 `
