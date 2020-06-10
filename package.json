@@ -1,0 +1,12 @@
+{
+  "name": "react-avanzado",
+  "version": "1.0.0",
+  "description": "Crea una aplicación para subir y compartir fotos de mascotas usando Webpack, GraphQL, React Hooks, React Router, SEO y PWAs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["ReactJS", "Hooks", "React Router", "PWAs", "SEO", "JS", "TS"],
+  "author": "Angelo Zambrano <angelozam17@gmail.com>",
+  "license": "MIT"
+}
