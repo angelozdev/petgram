@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
    :root {
-      --background: #fefefe;
+      --background: #fff;
    }
 
    *, *::before, *::after {
