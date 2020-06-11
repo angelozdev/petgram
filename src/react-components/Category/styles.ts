@@ -1,16 +1,10 @@
 import styled from "styled-components";
 
 export const CategoryStyled = styled.a`
-   width : 55px;
-   height: 55px;
+   width : 65px;
+   height: 65px;
    margin: 0 .5rem;
    display: inline-block;
-
-   figure {
-      width : 100%;
-      height: 100%;
-      margin: 0;
-   }
 
    img {
       width : 100%;

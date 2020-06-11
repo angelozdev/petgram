@@ -28,4 +28,10 @@ export const GlobalStyle = createGlobalStyle`
       padding: 0;
       margin: 0;
    }
+
+   figure {
+      width : 100%;
+      height: 100%;
+      margin: 0;
+   }
 `
