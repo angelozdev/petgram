@@ -1,29 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 /* Styles */
 import { CategoryListStyled } from "./styles";
 
 /* Data */
-import { categories as data } from '../../../api/db.json';
+import { useCategories } from '../../hooks/useCategories';
 
 /* Components */
 import { Category } from '../Category'
 
 export const CategoryList = () => {
-   const [categories, setCategories] = useState([])
-
-   useEffect(() => {
-      setCategories(data)
-   }, [])
+   const { categories, loading } = useCategories()
 
    return (
-      <CategoryListStyled>
+      <CategoryListStyled id="category-list">
          <ul>
-            {categories.map(category => (
-               <li key={category.id}>
-                  <Category details={{...category}}/>
-               </li>
-            ))}
+            {
+               loading 
+               ? new Array(6).fill('').map((item, i) => (
+                  <li key={i}>
+                     <Category />
+                  </li>
+               ))
+               : categories.map(category => (
+                  <li key={category.id}>
+                     <Category details={{...category}}/>
+                  </li>
+               ))
+            }
          </ul>
       </CategoryListStyled>
    )

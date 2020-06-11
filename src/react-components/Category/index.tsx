@@ -4,17 +4,21 @@ import React from 'react';
 import { CategoryStyled } from "./styles";
 
 interface IProps {
-   details: {
-      id: number,
-      name: string,
+   details?: {
+      id   : number,
+      name : string,
       emoji: string,
       cover: string,
-      path: string
+      path : string
    }
 }
 
 export const Category = (props: IProps) => {
-   const { id, name, emoji, cover, path } = props.details;
+   const { 
+      name = '', 
+      cover = 'https://i.gifer.com/7YUU.gif', 
+   } = props.details ? props.details : {};
+   
    return (
       <CategoryStyled href="/">
          <figure>
