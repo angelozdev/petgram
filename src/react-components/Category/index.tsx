@@ -18,7 +18,7 @@ export const Category = (props: IProps) => {
    return (
       <CategoryStyled href="/">
          <figure>
-            <img src={cover} alt={name}/>
+            <img loading="lazy" src={cover} alt={name}/>
             <figcaption>{name}</figcaption>
          </figure>
       </CategoryStyled>

@@ -21,7 +21,7 @@ export const PhotoCard = (props: IProps) => {
       <PhotoCardStyled>
          <a href={`/pet/${id}`}>
             <figure>
-               <img src={src} alt={`photo by ${id}`}/>
+               <img loading="lazy" src={src} alt={`photo by ${id}`}/>
             </figure>
          </a>
          <button>
