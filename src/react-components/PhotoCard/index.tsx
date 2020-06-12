@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 /* Styles */
 import { PhotoCardStyled } from './styles';
-import { FaRegHeart } from 'react-icons/fa'
+import { FaRegHeart, FaHeart, FaHourglassEnd } from 'react-icons/fa'
 
 /* Hooks */
 import { useLazyLoading } from '../../hooks/useLazyLoading'
@@ -19,8 +19,18 @@ interface IProps {
 
 export const PhotoCard = (props: IProps) => {
    const { id, likes = 0, categoryId, userId, src} = props.details;
-   const element = useRef(null)
-   const { isShow } = useLazyLoading(element)
+   const element = useRef(null);
+   const { isShow } = useLazyLoading(element);
+   const key = `liked-${id}`
+   const [liked, setLiked] = useState(() => (
+      JSON.parse(localStorage.getItem(key)) || false
+   ));
+   
+
+   const setLocalStorage = () => {
+      setLiked(!liked)
+      localStorage.setItem(key, JSON.stringify(!liked))
+   }
 
    return (
       <PhotoCardStyled ref={element}>
@@ -32,8 +42,11 @@ export const PhotoCard = (props: IProps) => {
                      <img loading="lazy" src={src} alt={`photo by ${id}`}/>
                   </figure>
                </a>
-               <button>
-                  <FaRegHeart size="1.5rem" />
+               <button onClick={setLocalStorage}>
+                  {liked 
+                     ? <FaHeart size="1.5rem"/>
+                     : <FaRegHeart size="1.5rem" />
+                  }
                   {likes} likes
                </button> 
             </>

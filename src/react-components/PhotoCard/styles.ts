@@ -43,6 +43,7 @@ export const PhotoCardStyled = styled.article`
       border: none;
       outline: 0;
       background-color: transparent;
+      cursor: pointer;
 
       & svg {
          margin-right: .5rem;
