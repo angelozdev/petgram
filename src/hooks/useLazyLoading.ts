@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-export const useLazyLoading = (element) => {
-   const [isShow, setIsShow] = useState(false)
+export const useLazyLoading = (element: {current: any}) => {
+   const [isShow, setIsShow] = useState<Boolean>(false)
    
    useEffect(() => {
       /* ¿Intersection es compatible? */
@@ -13,7 +13,7 @@ export const useLazyLoading = (element) => {
       )
       /* La importación se parchea automáticamente */
       .then(() => {
-         const observer = new IntersectionObserver((entries) => {
+         const observer: IntersectionObserver = new IntersectionObserver((entries) => {
             const { isIntersecting } = entries[0];
             if(isIntersecting){
                setIsShow(true)
