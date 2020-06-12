@@ -44,6 +44,7 @@ export const PhotoCardStyled = styled.article`
       outline: 0;
       background-color: transparent;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
 
       & svg {
          margin-right: .5rem;

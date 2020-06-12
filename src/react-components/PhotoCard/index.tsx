@@ -9,7 +9,7 @@ import { useNearScreen } from '../../hooks/useNearScreen';
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 interface IProps {
-   details: {
+   details?: {
       id: number,
       likes: number,
       categoryId: number,
@@ -19,7 +19,7 @@ interface IProps {
 }
 
 export const PhotoCard = (props: IProps) => {
-   const { id, likes = 0, categoryId, userId, src } = props.details;
+   const { id, likes = 0, categoryId, userId, src = 'https://i.pinimg.com/originals/4d/79/e4/4d79e45299ba276f530cbda84f5eca05.gif' } = props.details || {};
    const [ isShow, element ] = useNearScreen();
    const [ liked, setLiked ] = useLocalStorage(id)
    
