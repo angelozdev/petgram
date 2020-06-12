@@ -1,15 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, MutableRefObject } from 'react';
 
-export const useLazyLoading = (element: {current: any}) => {
+export const useNearScreen = (): any[] => {
+   const element: MutableRefObject<HTMLElement> = useRef()
    const [isShow, setIsShow] = useState<Boolean>(false)
    
    useEffect(() => {
       /* ¿Intersection es compatible? */
       Promise.resolve(
-         window.IntersectionObserver 
-         ? window.IntersectionObserver
-         /* ¿no? importe esta dependencia*/
-         : import('intersection-observer')
+         window.IntersectionObserver || import('intersection-observer')
       )
       /* La importación se parchea automáticamente */
       .then(() => {
@@ -26,5 +24,5 @@ export const useLazyLoading = (element: {current: any}) => {
       
    }, [element])
 
-   return { isShow }
+   return [ isShow, element ]
 }

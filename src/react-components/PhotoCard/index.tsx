@@ -5,7 +5,7 @@ import { PhotoCardStyled } from './styles';
 import { FaRegHeart, FaHeart } from 'react-icons/fa'
 
 /* Hooks */
-import { useLazyLoading } from '../../hooks/useLazyLoading';
+import { useNearScreen } from '../../hooks/useNearScreen';
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 interface IProps {
@@ -19,11 +19,9 @@ interface IProps {
 }
 
 export const PhotoCard = (props: IProps) => {
-   const { id, likes = 0, categoryId, userId, src} = props.details;
-   const element = useRef(null);
-   const { isShow } = useLazyLoading(element);
-   const key: string = `liked-${id}`
-   const [ liked, setLiked ] = useLocalStorage(key)
+   const { id, likes = 0, categoryId, userId, src } = props.details;
+   const [ isShow, element ] = useNearScreen();
+   const [ liked, setLiked ] = useLocalStorage(id)
    
    return (
       <PhotoCardStyled ref={element}>

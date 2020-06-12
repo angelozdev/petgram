@@ -4,25 +4,26 @@ import React from 'react';
 import { CategoryListStyled } from "./styles";
 
 /* Data */
-import { useCategories } from '../../hooks/useCategories';
+import { useFetchData } from '../../hooks/useFetchData';
+import { categories } from '../../../api/db.json';
 
 /* Components */
 import { Category } from '../Category'
 
 export const CategoryList = () => {
-   const { categories, loading } = useCategories()
+   const { data, isLoading } = useFetchData(categories);
 
    return (
       <CategoryListStyled id="category-list">
          <ul>
             {
-               loading 
+               isLoading 
                ? new Array(6).fill('').map((item, i) => (
                   <li key={i}>
                      <Category />
                   </li>
                ))
-               : categories.map(category => (
+               : data.map(category => (
                   <li key={category.id}>
                      <Category details={{...category}}/>
                   </li>
