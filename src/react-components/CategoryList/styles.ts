@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const  CategoryListStyled = styled.section`
    width: 100%;
-   margin-top: 49px;
    overflow: scroll;
    background-color: #fafafa;
    border-bottom: 1px solid lightgray;

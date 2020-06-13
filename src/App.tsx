@@ -7,6 +7,7 @@ import { GlobalStyle } from './styles/global';
 import { CategoryList } from './react-components/CategoryList';
 import { PhotoCardList } from "./react-components/PhotoCardList";
 import { Header } from './react-components/Header';
+import { PhotoCardDetails } from './containers/PhotoCardDetails';
 
 /* Apollo and GraphQL */
 import { ApolloProvider } from "react-apollo";
@@ -17,12 +18,23 @@ const client = new ApolloClient({
 })
 
 export const App = () => {
+   const urlParams = new URLSearchParams(window.location.search)
+   const id = urlParams.get('detail');
+   
+
    return (
       <ApolloProvider client={client}>
          <GlobalStyle />
          <Header />
-         <CategoryList />
-         <PhotoCardList categoryId={1}/>
+         {
+            id
+            ? <PhotoCardDetails id={id}/>
+            : <>
+               <CategoryList />
+               <PhotoCardList />
+            </>
+         }
+         
       </ApolloProvider>
    )
 }

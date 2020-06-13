@@ -6,10 +6,9 @@ export const useFetchData = (url: any, initialState: any[] = []) => {
    
    useEffect(() => {
       setLoading(true)
-      setTimeout(() => {
-         setData(url)
-         setLoading(false)
-      }, 2000)
+      setData(url)
+      setLoading(false)
+
    }, [])
 
    return { data, isLoading };

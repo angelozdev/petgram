@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 
 /* Styles */
 import { PhotoCardStyled } from './styles';
@@ -28,7 +28,7 @@ export const PhotoCard = (props: IProps) => {
          {
             isShow 
             ? <>
-               <a href={`/pet/${id}`}>
+               <a href={`/?detail=${id}`}>
                   <figure>
                      <img loading="lazy" src={src} alt={`photo by ${id}`}/>
                   </figure>
