@@ -22,7 +22,7 @@ export const App = () => {
          <GlobalStyle />
          <Header />
          <CategoryList />
-         <PhotoCardList />
+         <PhotoCardList categoryId={1}/>
       </ApolloProvider>
    )
 }

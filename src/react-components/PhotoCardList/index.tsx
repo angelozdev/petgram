@@ -4,25 +4,11 @@ import React from 'react';
 import { PhotoCard } from '../PhotoCard';
 
 /* GraphQL and Apollo */
-import { useQuery } from 'react-apollo';
-import { gql } from 'apollo-boost';
+import { useGetByCategory } from "../../hooks/useGetByCategory";
 
-const withPhotos = gql`
-   query getPhotos{
-      photos {
-         id,
-         categoryId,
-         src,
-         likes,
-         liked,
-         userId
-      }
-   }
-`
+export const PhotoCardList = (props) => {
+   const { data, loading } = useGetByCategory(props.categoryId)
 
-export const PhotoCardList = () => {
-   const { loading, data } = useQuery(withPhotos)
-   
    return (
       <section>
          {loading 
