@@ -26,7 +26,7 @@ export const PhotoCard = (props: IProps) => {
       likes = 0, 
       categoryId, 
       userId, 
-      src = 'https://webartdevelopers.com/blog/wp-content/uploads/2019/06/Newton-Loader-HTML-CSS.gif' 
+      src
    } = props.details || {};
    const { loading } = props;
    const [ isShow, element ] = useNearScreen();
