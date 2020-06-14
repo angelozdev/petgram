@@ -9,6 +9,9 @@ import { useNearScreen } from '../../hooks/useNearScreen';
 /* Components */
 import { LikeButton } from "../LikeButton";
 
+/* Routes */
+import { Link } from 'react-router-dom';
+
 interface IProps {
    details?: {
       id: number,
@@ -36,11 +39,11 @@ export const PhotoCard = (props: IProps) => {
          {
             isShow 
             ? <>
-               <a href={`/?detail=${id}`}>
+               <Link to={`/detail/${id}`}>
                   <figure>
                      <img loading="lazy" src={src} alt={`photo by ${id}`}/>
                   </figure>
-               </a>
+               </Link>
                {!loading && <LikeButton likes={likes} id={id}/>}
             </>
             : null

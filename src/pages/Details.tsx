@@ -22,9 +22,11 @@ const GET_SINGLE_PHOTO = gql`
    }
 `
 
-export const PhotoCardDetails = (props: any) => {
-   const { id } = props;
+export const Details = (props: any) => {
+   const { id } = props.match.params;
    const { data, loading } = useQuery(GET_SINGLE_PHOTO, {variables: {id}})
+   console.log(id);
+   
    
    return (
       <ReactPlaceholder 

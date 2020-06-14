@@ -12,7 +12,7 @@ import ApolloClient from "apollo-boost";
 
 /* Pages */
 import { Home } from './pages/Home';
-import { PhotoCardDetails } from './containers/PhotoCardDetails'
+import { Details } from './pages/Details'
 
 /* Router */
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -30,6 +30,7 @@ export const App = () => {
             <Switch>
                <Route exact path="/" component={Home}/>
                <Route exact path="/pet/:id" component={Home}/>
+               <Route exact path="/detail/:id" component={Details} />
             </Switch>
          </BrowserRouter>
       </ApolloProvider>
