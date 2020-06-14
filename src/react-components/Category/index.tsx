@@ -15,12 +15,13 @@ interface IProps {
 
 export const Category = (props: IProps) => {
    const { 
-      name = '', 
-      cover = 'https://i.gifer.com/7YUU.gif', 
-   } = props.details ? props.details : {};
+      id,
+      name, 
+      cover, 
+   } = props.details || {};
    
    return (
-      <CategoryStyled href="/">
+      <CategoryStyled to={`/pet/${id}`}>
          <figure>
             <img loading="lazy" src={cover} alt={name}/>
             <figcaption>{name}</figcaption>

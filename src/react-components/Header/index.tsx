@@ -8,8 +8,10 @@ import { Logo } from '../Logo'
 
 export const Header = () => {
    return (
-      <HeaderStyled>
-         <Logo />
+      <HeaderStyled to="/">
+         <header>
+            <Logo />
+         </header>
       </HeaderStyled>
    )
 }

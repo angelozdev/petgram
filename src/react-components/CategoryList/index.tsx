@@ -14,7 +14,7 @@ export const CategoryList = () => {
    const { data, isLoading } = useFetchData(categories);
 
    return (
-      <CategoryListStyled id="category-list">
+      <CategoryListStyled>
          <ul>
             {
                isLoading 

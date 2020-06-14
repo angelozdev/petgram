@@ -4,37 +4,34 @@ import React from 'react';
 import { GlobalStyle } from './styles/global';
 
 /* Components */
-import { CategoryList } from './react-components/CategoryList';
-import { PhotoCardList } from "./react-components/PhotoCardList";
 import { Header } from './react-components/Header';
-import { PhotoCardDetails } from './containers/PhotoCardDetails';
 
 /* Apollo and GraphQL */
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
+
+/* Pages */
+import { Home } from './pages/Home';
+import { PhotoCardDetails } from './containers/PhotoCardDetails'
+
+/* Router */
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const client = new ApolloClient({
    uri: 'https://petgram-server-angelozam17.angelozam17.vercel.app/graphql'
 })
 
 export const App = () => {
-   const urlParams = new URLSearchParams(window.location.search)
-   const id = urlParams.get('detail');
-   
-
    return (
       <ApolloProvider client={client}>
          <GlobalStyle />
-         <Header />
-         {
-            id
-            ? <PhotoCardDetails id={id}/>
-            : <>
-               <CategoryList />
-               <PhotoCardList />
-            </>
-         }
-         
+         <BrowserRouter>
+            <Header />
+            <Switch>
+               <Route exact path="/" component={Home}/>
+               <Route exact path="/pet/:id" component={Home}/>
+            </Switch>
+         </BrowserRouter>
       </ApolloProvider>
    )
 }
