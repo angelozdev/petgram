@@ -2,11 +2,12 @@ import React from 'react';
 
 /* Styles */
 import { PhotoCardStyled } from './styles';
-import { FaRegHeart, FaHeart } from 'react-icons/fa'
 
 /* Hooks */
 import { useNearScreen } from '../../hooks/useNearScreen';
-import { useLocalStorage } from '../../hooks/useLocalStorage'
+
+/* Components */
+import { LikeButton } from "../LikeButton";
 
 interface IProps {
    details?: {
@@ -29,7 +30,6 @@ export const PhotoCard = (props: IProps) => {
    } = props.details || {};
    const { loading } = props;
    const [ isShow, element ] = useNearScreen();
-   const [ liked, setLiked ] = useLocalStorage(id)
    
    return (
       <PhotoCardStyled ref={element}>
@@ -41,16 +41,7 @@ export const PhotoCard = (props: IProps) => {
                      <img loading="lazy" src={src} alt={`photo by ${id}`}/>
                   </figure>
                </a>
-               {
-                  !loading &&
-                  <button onClick={() => setLiked(!liked)}>
-                     {liked 
-                        ? <FaHeart color="red" size="1.5rem"/>
-                        : <FaRegHeart size="1.5rem" />
-                     }
-                     {likes} likes
-                  </button> 
-               }
+               {!loading && <LikeButton likes={likes} id={id}/>}
             </>
             : null
          }
