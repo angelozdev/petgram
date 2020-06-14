@@ -11,7 +11,6 @@ const blurAnimation = keyframes`
 `
 
 export const PhotoCardStyled = styled.article`
-   margin-top: 2rem;
    overflow: hidden;
    min-height: 200px;
 
@@ -38,7 +37,7 @@ export const PhotoCardStyled = styled.article`
    button {
       display: flex;
       align-items: center;
-      padding: .25rem;
+      padding: .25rem 1rem;
       margin-top: .5rem;
       border: none;
       outline: 0;

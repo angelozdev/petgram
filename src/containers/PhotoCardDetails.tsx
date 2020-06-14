@@ -5,9 +5,10 @@ import { PhotoCard } from "../react-components/PhotoCard";
 import { gql } from "apollo-boost";
 import { useQuery } from 'react-apollo';
 
-const query = gql`
-   query getSinglePhoto($id:ID!){
-      photo(id:$id){
+
+const GET_SINGLE_PHOTO = gql`
+   query getSinglePhoto ($id: ID!){
+      photo (id: $id){
          id
          categoryId
          src
@@ -20,15 +21,14 @@ const query = gql`
 
 export const PhotoCardDetails = (props: any) => {
    const { id } = props;
-   const { data, loading } = useQuery(query, {variables: {id}})
+   const { data, loading } = useQuery(GET_SINGLE_PHOTO, {variables: {id}})
    
    return (
       <>
       {loading 
-         ? <PhotoCard />
+         ? <PhotoCard loading={loading}/>
          : <PhotoCard details={data.photo}/>
       }
       </>
-
    )
 }
