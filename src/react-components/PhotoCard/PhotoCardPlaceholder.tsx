@@ -1,8 +1,9 @@
 import React from 'react';
 import { RectShape, RoundShape, TextBlock  } from 'react-placeholder/lib/placeholders';
+import 'react-placeholder/lib/reactPlaceholder.css';
 
 export const PhotoCardPlaceholder = () => (
-   <>
+   <div className='show-loading-animation'>
       <RectShape 
          color="#cdcdcd" 
          style={{
@@ -35,5 +36,5 @@ export const PhotoCardPlaceholder = () => (
             }}
          />
       </div>
-   </>
+   </div>
 )
