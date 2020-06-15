@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, MutableRefObject } from 'react';
 
-export const useNearScreen = (): any[] => {
+export const useNearScreen = (): [boolean, MutableRefObject<HTMLElement>] => {
    const element: MutableRefObject<HTMLElement> = useRef()
-   const [isShow, setIsShow] = useState<Boolean>(false)
+   const [isShow, setIsShow] = useState<boolean>(false)
 
    useEffect(() => {
       /* ¿Intersection es compatible? */

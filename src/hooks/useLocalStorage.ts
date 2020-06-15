@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useLocalStorage = (id: number, initialValue: boolean = false): any[] => {
+export const useLocalStorage = (id: number, initialValue: boolean = false): [boolean, (value: boolean) => void] => {
    const key: string = `liked-${id}`
    const [ value, setValue ] = useState<boolean>(() => (
       JSON.parse(localStorage.getItem(key)) || initialValue

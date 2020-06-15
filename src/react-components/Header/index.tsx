@@ -6,7 +6,7 @@ import { HeaderStyled } from "./styles";
 /* Components */
 import { Logo } from '../Logo'
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
    return (
       <HeaderStyled to="/">
          <header>

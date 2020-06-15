@@ -10,7 +10,7 @@ import { categories } from '../../../api/db.json';
 /* Components */
 import { Category } from '../Category'
 
-export const CategoryList = () => {
+export const CategoryList = (): JSX.Element => {
    const { data, isLoading } = useFetchData(categories);
 
    return (

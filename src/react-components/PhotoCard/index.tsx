@@ -20,33 +20,31 @@ interface IProps {
       userId: number,
       src: string
    }
-   loading?: boolean
 }
 
-export const PhotoCard = (props: IProps) => {
+export const PhotoCard = ({ details }: IProps): JSX.Element => {
    const {
       id,
       likes = 0,
       categoryId,
       userId,
       src
-   } = props.details || {};
-   const { loading } = props;
-   const [ isShow, element ] = useNearScreen();
+   } = details || {};
+
+   const [ show, article ] = useNearScreen();
 
    return (
-      <PhotoCardStyled ref={element}>
+      <PhotoCardStyled ref={article}>
          {
-            isShow
-            ? <>
+            show &&
+            <>
                <Link to={`/detail/${id}`}>
                   <figure>
                      <img loading="lazy" src={src} alt={`photo by ${id}`}/>
                   </figure>
                </Link>
-               {!loading && <LikeButton likes={likes} id={id}/>}
+               <LikeButton likes={likes} id={id}/>
             </>
-            : null
          }
       </PhotoCardStyled>
    )

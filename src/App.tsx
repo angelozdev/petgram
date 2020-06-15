@@ -16,26 +16,26 @@ import { Details } from './pages/Details'
 
 /* Router */
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Layout } from './react-components/Layout';
 
 const client = new ApolloClient({
    uri: 'https://petgram-server-angelozam17.angelozam17.vercel.app/graphql'
 })
 
-export const App = () => {
+export const App = (): JSX.Element => {
    return (
       <ApolloProvider client={client}>
          <GlobalStyle />
-         <BrowserRouter>
-            <Header />
+            <BrowserRouter>
+               <Layout>
+               <Switch>
 
-            <Switch>
+                  <Route exact path="/" component={Home}/>
+                  <Route exact path="/pet/:id" component={Home}/>
+                  <Route exact path="/detail/:id" component={Details} />
 
-               <Route exact path="/" component={Home}/>
-               <Route exact path="/pet/:id" component={Home}/>
-               <Route exact path="/detail/:id" component={Details} />
-
-            </Switch>
-
+               </Switch>
+            </Layout>
          </BrowserRouter>
       </ApolloProvider>
    )

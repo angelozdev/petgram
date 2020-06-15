@@ -1,12 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, Keyframes } from 'styled-components';
 
-const blurAnimation = keyframes`
-   from {
-      filter: blur(10px);
+const blurAnimation: Keyframes = keyframes`
+   0% {
+      opacity: 0;
    }
-
-   to {
-      filter: blur(0);
+   100% {
+      opacity: 1;
    }
 `
 
@@ -29,7 +28,7 @@ export const PhotoCardStyled = styled.article`
          left  : 0;
          right : 0;
          object-fit: cover;
-         animation: 400ms ${blurAnimation} ease-out;
+         animation: 1s ${blurAnimation} ease;
 
       }
    }

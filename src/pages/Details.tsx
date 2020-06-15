@@ -23,9 +23,16 @@ const GET_SINGLE_PHOTO = gql`
       }
    }
 `
+interface IProps {
+   match: {
+      params: {
+         id: number
+      }
+   }
+}
 
-export const Details = (props: any) => {
-   const { id } = props.match.params;
+export const Details = ({ match }: IProps): JSX.Element => {
+   const { id } = match.params;
    const { data, loading } = useQuery(GET_SINGLE_PHOTO, {variables: {id}})
 
    return (

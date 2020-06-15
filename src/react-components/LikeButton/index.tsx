@@ -7,9 +7,9 @@ import { LikeBottonStyled } from "./styles";
 /* Hooks */
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useMutation } from 'react-apollo';
-import { gql } from 'apollo-boost';
+import { gql, DocumentNode } from 'apollo-boost';
 
-const LIKE_PHOTO = gql`
+const LIKE_PHOTO: DocumentNode = gql`
    mutation likeAnonymousPhoto($input: LikePhoto!){
       likeAnonymousPhoto (input: $input) {
          id
@@ -19,8 +19,12 @@ const LIKE_PHOTO = gql`
    }
 `
 
-export const LikeButton = (props) => {
-   const { likes, id } = props;
+interface IProps {
+   id: number,
+   likes: number
+}
+
+export const LikeButton = ({ id, likes }: IProps): JSX.Element => {
    const [ liked, setLiked ] = useLocalStorage(id)
    const [ toggleLike ] = useMutation(LIKE_PHOTO, {variables: {input: {id}}})
 

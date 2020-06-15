@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-export const CategoryStyled = styled(Link)`
+export const CategoryStyled = styled(NavLink)`
    width : 65px;
    height: 65px;
    margin: 0 .5rem;
@@ -9,8 +9,8 @@ export const CategoryStyled = styled(Link)`
    color: var(--color-primary, black);
    -webkit-tap-highlight-color: transparent;
 
-   &:focus img{
-      border: 1.5px solid rgba(255,102,110,1);
+   &.active img{
+      border: 2px solid gray;
    }
 
    img {

@@ -2,10 +2,18 @@ import React from 'react';
 
 /* Components */
 import { CategoryList } from '../react-components/CategoryList';
-import { PhotoCardList } from '../react-components/PhotoCardList'
+import { PhotoCardList } from '../react-components/PhotoCardList';
 
-export const Home = (props) => {
-   const { id } = props.match.params
+interface IProps {
+   match: {
+      params: {
+         id: number
+      }
+   }
+}
+
+export const Home = ({ match }: IProps): JSX.Element => {
+   const { id } = match.params;
 
    return (
       <>

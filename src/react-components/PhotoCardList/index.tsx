@@ -4,7 +4,7 @@ import React from 'react';
 import { PhotoCard } from '../PhotoCard';
 
 /* GraphQL and Apollo */
-import { gql } from 'apollo-boost';
+import { gql, DocumentNode } from 'apollo-boost';
 import { useQuery } from 'react-apollo';
 
 /* Styles */
@@ -13,7 +13,7 @@ import ReactPlaceholder from 'react-placeholder';
 import { PhotoCardPlaceholder } from '../PhotoCard/PhotoCardPlaceholder';
 
 
-const GET_PHOTOS = gql`
+const GET_PHOTOS: DocumentNode = gql`
    query getPhotos ($categoryId: ID){
       photos (categoryId: $categoryId){
          id,
@@ -25,9 +25,11 @@ const GET_PHOTOS = gql`
       }
    }
 `
+interface IProps {
+   categoryId: number
+}
 
-export const PhotoCardList = (props: any) => {
-   const { categoryId } = props;
+export const PhotoCardList = ({ categoryId }: IProps): JSX.Element => {
    const { data, loading } = useQuery(GET_PHOTOS, {variables: {categoryId} })
 
    return (

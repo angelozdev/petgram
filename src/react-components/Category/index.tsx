@@ -13,15 +13,15 @@ interface IProps {
    }
 }
 
-export const Category = (props: IProps) => {
+export const Category = ({ details }: IProps): JSX.Element => {
    const {
       id,
       name,
       cover,
-   } = props.details || {};
+   } = details || {};
 
    return (
-      <CategoryStyled to={`/pet/${id}`}>
+      <CategoryStyled exact to={`/pet/${id}`}>
          <figure>
             <img loading="lazy" src={cover} alt={name}/>
             <figcaption>{name}</figcaption>

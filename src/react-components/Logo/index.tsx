@@ -1,6 +1,7 @@
 import React from "react"
 
-export const Logo = (props) => {
+export const Logo = (): JSX.Element => {
+
    return (
       <svg
          width={200}
@@ -10,7 +11,6 @@ export const Logo = (props) => {
             background: "0 0",
          }}
          preserveAspectRatio="xMidYMid"
-         {...props}
       >
          <defs>
             <linearGradient

@@ -2,16 +2,26 @@ import React from 'react';
 import { RectShape, RoundShape, TextBlock  } from 'react-placeholder/lib/placeholders';
 import 'react-placeholder/lib/reactPlaceholder.css';
 
-export const PhotoCardPlaceholder = () => (
+export const PhotoCardPlaceholder = (): JSX.Element => (
    <div className='show-loading-animation'>
-      <RectShape
-         color="#cdcdcd"
-         style={{
-            width : "100%",
-            height: "300px",
-            maxHeight: '50vh'
-         }}
-      />
+      <div style={{
+         height: "0",
+         padding: "75% 0 0 0",
+         position: "relative"
+      }}>
+         <RectShape
+            color="#cdcdcd"
+            style={{
+               width : "100%",
+               height: "100%",
+               position: "absolute",
+               top   : "0",
+               bottom: "0",
+               right : "0",
+               left  : "0"
+            }}
+         />
+      </div>
       <div
          style={{
             display: 'flex',
@@ -23,7 +33,7 @@ export const PhotoCardPlaceholder = () => (
             style={{
                width : "2rem",
                height: "2rem",
-               margin: '1rem',
+               margin: '.5rem',
                display: "inline-block"
             }}
          />
