@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* Components */
 import { PhotoCard } from "../react-components/PhotoCard";
 
 /* GraphQL and Apollo */
@@ -25,12 +27,10 @@ const GET_SINGLE_PHOTO = gql`
 export const Details = (props: any) => {
    const { id } = props.match.params;
    const { data, loading } = useQuery(GET_SINGLE_PHOTO, {variables: {id}})
-   console.log(id);
-   
-   
+
    return (
-      <ReactPlaceholder 
-         ready={!loading} 
+      <ReactPlaceholder
+         ready={!loading}
          customPlaceholder={<PhotoCardPlaceholder />}
       >
          <PhotoCard details={data && data.photo} />

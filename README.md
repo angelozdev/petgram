@@ -5,11 +5,16 @@
 ```
 git clone https://github.com/Angelozam17/petgram.git
 npm install
-npm start 
+npm start
 ```
 
 ## Description
-+ React 
++ Apollo
++ GraphQL
++ React
++ React Icons
++ React Placeholder
++ React Router Dom
 + Styled Components
 + TypeScript
 + Webpack

@@ -24,20 +24,20 @@ interface IProps {
 }
 
 export const PhotoCard = (props: IProps) => {
-   const { 
-      id, 
-      likes = 0, 
-      categoryId, 
-      userId, 
+   const {
+      id,
+      likes = 0,
+      categoryId,
+      userId,
       src
    } = props.details || {};
    const { loading } = props;
    const [ isShow, element ] = useNearScreen();
-   
+
    return (
       <PhotoCardStyled ref={element}>
          {
-            isShow 
+            isShow
             ? <>
                <Link to={`/detail/${id}`}>
                   <figure>

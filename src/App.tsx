@@ -27,11 +27,15 @@ export const App = () => {
          <GlobalStyle />
          <BrowserRouter>
             <Header />
+
             <Switch>
+
                <Route exact path="/" component={Home}/>
                <Route exact path="/pet/:id" component={Home}/>
                <Route exact path="/detail/:id" component={Details} />
+
             </Switch>
+
          </BrowserRouter>
       </ApolloProvider>
    )

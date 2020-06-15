@@ -6,7 +6,7 @@ import { PhotoCardList } from '../react-components/PhotoCardList'
 
 export const Home = (props) => {
    const { id } = props.match.params
-   
+
    return (
       <>
          <CategoryList />

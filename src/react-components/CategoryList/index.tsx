@@ -17,7 +17,7 @@ export const CategoryList = () => {
       <CategoryListStyled>
          <ul>
             {
-               isLoading 
+               isLoading
                ? new Array(6).fill('').map((item, i) => (
                   <li key={i}>
                      <Category />

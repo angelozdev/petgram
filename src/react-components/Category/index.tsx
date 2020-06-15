@@ -14,12 +14,12 @@ interface IProps {
 }
 
 export const Category = (props: IProps) => {
-   const { 
+   const {
       id,
-      name, 
-      cover, 
+      name,
+      cover,
    } = props.details || {};
-   
+
    return (
       <CategoryStyled to={`/pet/${id}`}>
          <figure>

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, MutableRefObject } from 'react';
 export const useNearScreen = (): any[] => {
    const element: MutableRefObject<HTMLElement> = useRef()
    const [isShow, setIsShow] = useState<Boolean>(false)
-   
+
    useEffect(() => {
       /* ¿Intersection es compatible? */
       Promise.resolve(
@@ -21,7 +21,7 @@ export const useNearScreen = (): any[] => {
          observer.observe(element.current)
       })
       .catch(err => console.error(err))
-      
+
    }, [element])
 
    return [ isShow, element ]

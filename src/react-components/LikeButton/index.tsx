@@ -25,16 +25,16 @@ export const LikeButton = (props) => {
    const [ toggleLike ] = useMutation(LIKE_PHOTO, {variables: {input: {id}}})
 
    return (
-      <LikeBottonStyled 
+      <LikeBottonStyled
          onClick={() => {
             setLiked(!liked)
             !liked && toggleLike()
          }}>
-         {liked 
+         {liked
             ? <FaHeart color="red" size="1.5rem"/>
             : <FaRegHeart size="1.5rem" />
          }
          {likes} likes
-      </LikeBottonStyled> 
+      </LikeBottonStyled>
    )
 }

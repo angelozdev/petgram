@@ -29,15 +29,14 @@ const GET_PHOTOS = gql`
 export const PhotoCardList = (props: any) => {
    const { categoryId } = props;
    const { data, loading } = useQuery(GET_PHOTOS, {variables: {categoryId} })
-   
+
    return (
       <PhotoCardListStyled>
          <ReactPlaceholder ready={!loading} customPlaceholder={<PhotoCardPlaceholder />}>
             {data &&
                data.photos.map(photo => (
                   <PhotoCard key={photo.id} details={{...photo}}/>
-               ))
-            }
+            ))}
          </ReactPlaceholder>
       </PhotoCardListStyled>
    )
