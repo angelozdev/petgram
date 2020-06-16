@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 /* Styles */
 import { GlobalStyle } from './styles/global';
-
-/* Apollo and GraphQL */
-import { ApolloProvider } from "react-apollo";
-import ApolloClient from "apollo-boost";
 
 /* Layout */
 import { Layout } from './react-components/Layout';
@@ -24,30 +20,28 @@ import {
    Switch
 } from 'react-router-dom';
 
-const client = new ApolloClient({
-   uri: 'https://petgram-server-angelozam17.angelozam17.vercel.app/graphql'
-})
-
-const isRegistered = false;
+/* Hooks */
+import { useAuthContext } from './hooks/context/AuthContext'
 
 export const App = (): JSX.Element => {
+   const [{ isAuth }] = useAuthContext();
+
+
    return (
-      <ApolloProvider client={client}>
+      <Router>
          <GlobalStyle />
-         <Router>
-            <Layout>
+         <Layout>
             <Switch>
 
                <Route exact path="/" component={Home}/>
                <Route exact path="/pet/:id" component={Home}/>
                <Route exact path="/detail/:id" component={Details} />
-               <Route exact path="/favorites" component={isRegistered ? Favorites : NotRegistered} />
-               <Route exact path="/user" component={isRegistered ? User : NotRegistered} />
+               <Route exact path="/favorites" component={isAuth ? Favorites : NotRegistered} />
+               <Route exact path="/user" component={isAuth ? User : NotRegistered} />
 
             </Switch>
-            </Layout>
-         </Router>
-      </ApolloProvider>
+         </Layout>
+      </Router>
    )
 }
 
