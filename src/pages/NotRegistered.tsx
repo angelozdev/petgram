@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 /* Components */
-import { LoginForm } from '../react-components/LoginForm'
+import { SignupForm } from '../react-components/SignupForm';
+import { LoginForm } from '../react-components/LoginForm';
+
+/* Route */
 
 export const NotRegistered = () => {
-
    return (
-      <LoginForm title="Log in"/>
+      <Fragment>
+         <LoginForm />
+         <SignupForm/>
+      </Fragment>
    )
 }

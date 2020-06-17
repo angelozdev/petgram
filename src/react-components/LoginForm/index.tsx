@@ -7,8 +7,9 @@ import { authContext } from '../../context/authContext';
 import { useInputValue } from '../../hooks/seInputValue';
 
 /* Styles */
-import { LoginFormStyled } from './styles';
+import { FormStyled } from '../SignupForm/styles';
 import { FaUser, FaLock } from 'react-icons/fa';
+import { AiOutlineLoading } from 'react-icons/ai';
 
 /* Components */
 import { Logo } from '../Logo';
@@ -17,42 +18,40 @@ import { Logo } from '../Logo';
 import { useMutation } from 'react-apollo';
 import { gql, DocumentNode } from 'apollo-boost';
 
-interface IProps {
-   title: string
-}
-
-export const LoginForm = ({ title }: IProps) => {
+export const LoginForm = () => {
    const { activeAuth } = useContext<any>(authContext)
    const [{ password, email }, onChange] = useInputValue({ password: 'admin123', email: 'johndoe@email.com' });
 
    const REGISTER: DocumentNode = gql`
       mutation($input: UserCredentials!) {
-         signup(input: $input)
+         login(input: $input)
       }
    `
-   const [ register ] = useMutation(REGISTER, {variables: { input: { email, password } }})
+   const [ register, { loading, error } ] = useMutation(REGISTER, {variables: { input: { email, password } }})
 
    const handleOnSubmit = (e: FormEvent) => {
       e.preventDefault()
 
       if(password !== '' && email !== ''){
          register()
-            .then(activeAuth)
-            .catch(err => {
-               console.log(err)
-            })
+         .then(({data}) => {
+            activeAuth(data.login)
+         })
+         .catch(err => console.error(err))
       }
    }
 
    return (
-      <LoginFormStyled>
+      <FormStyled>
          <form onSubmit={handleOnSubmit}>
             <Logo />
+            <h2>Log in</h2>
             <div className="form-control">
                <label htmlFor="email">
                   <FaUser color="gray"/>
                </label>
                <input
+                  disabled={loading}
                   onChange={onChange}
                   name="email"
                   id="email"
@@ -67,6 +66,7 @@ export const LoginForm = ({ title }: IProps) => {
                   <FaLock color="gray" />
                </label>
                <input
+                  disabled={loading}
                   onChange={onChange}
                   name="password"
                   id="password"
@@ -76,8 +76,16 @@ export const LoginForm = ({ title }: IProps) => {
                />
             </div>
 
-            <button type="submit">{title}</button>
+            <button className="btn-enter" disabled={loading} type="submit">
+               {loading
+                  ? <span className="spinner"><AiOutlineLoading /></span>
+                  : 'Log in'
+               }
+            </button>
+            <span className="message">
+               { error && "Password or email incorrect" }
+            </span>
          </form>
-      </LoginFormStyled>
+      </FormStyled>
    )
 }

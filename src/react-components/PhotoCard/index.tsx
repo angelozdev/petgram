@@ -18,7 +18,8 @@ interface IProps {
       likes: number,
       categoryId: number,
       userId: number,
-      src: string
+      src: string,
+      liked: boolean
    }
 }
 
@@ -28,7 +29,8 @@ export const PhotoCard = ({ details }: IProps): JSX.Element => {
       likes = 0,
       categoryId,
       userId,
-      src
+      src,
+      liked
    } = details || {};
 
    const [ show, article ] = useNearScreen();
@@ -43,7 +45,7 @@ export const PhotoCard = ({ details }: IProps): JSX.Element => {
                      <img loading="lazy" src={src} alt={`photo by ${id}`}/>
                   </figure>
                </Link>
-               <LikeButton likes={likes} id={id}/>
+               <LikeButton liked={liked} likes={likes} id={id}/>
             </>
          }
       </PhotoCardStyled>

@@ -5,13 +5,12 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { LikeBottonStyled } from "./styles";
 
 /* Hooks */
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useMutation } from 'react-apollo';
 import { gql, DocumentNode } from 'apollo-boost';
 
 const LIKE_PHOTO: DocumentNode = gql`
-   mutation likeAnonymousPhoto($input: LikePhoto!){
-      likeAnonymousPhoto (input: $input) {
+   mutation likePhoto($input: LikePhoto!){
+      likePhoto (input: $input) {
          id
          liked
          likes
@@ -21,18 +20,17 @@ const LIKE_PHOTO: DocumentNode = gql`
 
 interface IProps {
    id: number,
-   likes: number
+   likes: number,
+   liked: boolean
 }
 
-export const LikeButton = ({ id, likes }: IProps): JSX.Element => {
-   const [ liked, setLiked ] = useLocalStorage(id)
+export const LikeButton = ({ id, likes, liked }: IProps): JSX.Element => {
    const [ toggleLike ] = useMutation(LIKE_PHOTO, {variables: {input: {id}}})
 
    return (
       <LikeBottonStyled
          onClick={() => {
-            setLiked(!liked)
-            !liked && toggleLike()
+            toggleLike()
          }}>
          {liked
             ? <FaHeart color="red" size="1.5rem"/>

@@ -9,7 +9,7 @@ interface IValues {
 type TChangeE = ChangeEvent<HTMLInputElement>
 
 export const useInputValue = (initialState = {}): [IValues, (e: TChangeE) => void] => {
-   const [values, setValues] = useState<IValues | {}>(initialState)
+   const [values, setValues] = useState<IValues | {}>(initialState);
 
    const onChange = ({ target }: TChangeE): void => {
       const { name, value } = target;
