@@ -2,12 +2,17 @@ import styled from 'styled-components';
 
 
 export const NavbarStyled = styled.nav`
-   display: flex;
-   position: fixed;
-   width : 100%;
-   height: 49px;
-   bottom: 0;
-   border-top: 1px solid lightgray;
+   display: inline-block;
+   margin-top: 50px;
+
+   .container {
+      display: flex;
+      position: fixed;
+      width : 100%;
+      height: 49px;
+      bottom: 0;
+      border-top: 1px solid lightgray;
+   }
 
    a {
       width : 100%;

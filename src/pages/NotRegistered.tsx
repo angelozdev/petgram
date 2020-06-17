@@ -6,6 +6,6 @@ import { LoginForm } from '../react-components/LoginForm'
 export const NotRegistered = () => {
 
    return (
-      <LoginForm />
+      <LoginForm title="Log in"/>
    )
 }

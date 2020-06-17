@@ -4,7 +4,7 @@
   "description": "Crea una aplicación para subir y compartir fotos de mascotas usando Webpack, GraphQL, React Hooks, React Router, SEO y PWAs.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --host 192.168.0.9 --open",
+    "start": "webpack-dev-server --mode development --host 192.168.0.10 --open",
     "build": "webpack --mode production"
   },
   "keywords": [
