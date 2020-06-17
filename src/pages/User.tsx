@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 /* context */
 import { authContext } from '../context/authContext';
 import { useContext } from 'react';
 
 /* Router */
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+
+/* SEO */
+import { Helmet } from 'react-helmet'
 
 export const User = () => {
    const { disableAuth } = useContext<any>(authContext);
@@ -17,10 +20,15 @@ export const User = () => {
    }
 
    return (
-      <div>
-         <button onClick={handleClick}>
-            LogOut
-         </button>
-      </div>
+      <Fragment>
+         <Helmet>
+            <title>Petgram - Profile</title>
+         </Helmet>
+         <div className="">
+            <button onClick={handleClick}>
+               LogOut
+            </button>
+         </div>
+      </Fragment>
    )
 }

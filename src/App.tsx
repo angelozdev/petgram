@@ -19,8 +19,6 @@ import {
    BrowserRouter as Router,
    Route,
    Switch,
-   Redirect,
-   Link,
 } from 'react-router-dom';
 
 /* Hooks */

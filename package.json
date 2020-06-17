@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --host 192.168.0.10 --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "server:dev": "webpack --mode development && npx serve ./dist -s"
   },
   "keywords": [
     "ReactJS",
@@ -25,6 +26,7 @@
     "@babel/preset-typescript": "^7.10.1",
     "@types/react": "^16.9.36",
     "@types/react-dom": "^16.9.8",
+    "@types/react-helmet": "^6.0.0",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.0",
     "babel-loader": "^8.1.0",
@@ -43,6 +45,7 @@
     "react": "^16.13.1",
     "react-apollo": "^3.1.5",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-icons": "^3.10.0",
     "react-placeholder": "^4.0.3",
     "react-router-dom": "^5.2.0",

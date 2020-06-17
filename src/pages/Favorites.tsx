@@ -4,10 +4,15 @@ import React from 'react';
 import { useQuery } from 'react-apollo';
 import { gql, DocumentNode } from 'apollo-boost';
 
-/*  */
+/* COmponents */
 import { PhotoCard } from '../react-components/PhotoCard';
+
+/* Styles */
 import { PhotoCardPlaceholder } from '../react-components/PhotoCard/PhotoCardPlaceholder';
 import ReactPlaceholder from 'react-placeholder/lib';
+
+/* SEO */
+import { Helmet } from "react-helmet";
 
 const GET_FAVS: DocumentNode = gql`
    query getFavs{
@@ -26,6 +31,10 @@ export const Favorites = () => {
 
    return (
       <ReactPlaceholder ready={!loading} customPlaceholder={<PhotoCardPlaceholder />}>
+         <Helmet>
+            <title>Petgram - Favorites</title>
+            <meta name="description" content="Aquí tienes tus fotos favoritas"></meta>
+         </Helmet>
          <h2>Mis favoritos</h2>
          {data && data.favs.length > 0
             ? data.favs.map(photo => (

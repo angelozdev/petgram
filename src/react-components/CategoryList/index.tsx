@@ -10,7 +10,7 @@ import { categories } from '../../../api/db.json';
 /* Components */
 import { Category } from '../Category'
 
-export const CategoryList = (): JSX.Element => {
+const CategoryListMemo = (): JSX.Element => {
    const { data, isLoading } = useFetchData(categories);
 
    return (
@@ -33,3 +33,5 @@ export const CategoryList = (): JSX.Element => {
       </CategoryListStyled>
    )
 }
+
+export const CategoryList = React.memo(CategoryListMemo)
