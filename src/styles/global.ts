@@ -1,4 +1,4 @@
-import { createGlobalStyle, GlobalStyleComponent } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
    :root {
@@ -19,8 +19,8 @@ export const GlobalStyle = createGlobalStyle`
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    }
 
-   #root {
-      padding-top: 49px;
+   h1, h2, h3, h4 {
+      margin: 0;
    }
 
    img {

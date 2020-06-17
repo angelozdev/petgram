@@ -11,6 +11,7 @@ export const Logo = (): JSX.Element => {
             background: "0 0",
          }}
          preserveAspectRatio="xMidYMid"
+         className="logo"
       >
          <defs>
             <linearGradient

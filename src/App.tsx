@@ -17,7 +17,8 @@ import { User } from './pages/User'
 import {
    BrowserRouter as Router,
    Route,
-   Switch
+   Switch,
+   Redirect
 } from 'react-router-dom';
 
 /* Hooks */
@@ -25,23 +26,32 @@ import { useAuthContext } from './hooks/context/AuthContext'
 
 export const App = (): JSX.Element => {
    const [{ isAuth }] = useAuthContext();
-
+   /* const isAuth = true; */
 
    return (
-      <Router>
-         <GlobalStyle />
-         <Layout>
-            <Switch>
-
-               <Route exact path="/" component={Home}/>
-               <Route exact path="/pet/:id" component={Home}/>
-               <Route exact path="/detail/:id" component={Details} />
-               <Route exact path="/favorites" component={isAuth ? Favorites : NotRegistered} />
-               <Route exact path="/user" component={isAuth ? User : NotRegistered} />
-
-            </Switch>
-         </Layout>
-      </Router>
+   <>
+      <GlobalStyle />
+      {
+         isAuth
+         ? (
+            <Router>
+               <Layout>
+                  <Switch>
+                     <Route exact path="/" component={Home}/>
+                     <Route exact path="/pet/:id" component={Home}/>
+                     <Route exact path="/detail/:id" component={Details} />
+                     <Route exact path="/favorites" component={Favorites} />
+                     <Route exact path="/user" component={User} />
+                  </Switch>
+               </Layout>
+            </Router>
+         )
+         : (<Router>
+               <Route exact path="/" component={NotRegistered} />
+         </Router>
+         )
+      }
+   </>
    )
 }
 

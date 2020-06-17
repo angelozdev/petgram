@@ -1,17 +1,11 @@
-import React, { FormEvent } from 'react';
-import { useAuthContext } from '../hooks/context/AuthContext'
+import React from 'react';
+
+/* Components */
+import { LoginForm } from '../react-components/LoginForm'
 
 export const NotRegistered = () => {
-   const [{ isAuth }, dispath] = useAuthContext()
-
-   const handleOnSubmit = (e: FormEvent) => {
-      e.preventDefault()
-      dispath({type: 'ACTIVE_AUTH'})
-   }
 
    return (
-      <form onSubmit={handleOnSubmit}>
-         <button type="submit">Click me!</button>
-      </form>
+      <LoginForm />
    )
 }
