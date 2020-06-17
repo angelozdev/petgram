@@ -18,15 +18,13 @@ import {
    BrowserRouter as Router,
    Route,
    Switch,
-   Redirect
 } from 'react-router-dom';
 
 /* Hooks */
-import { useAuthContext } from './hooks/context/AuthContext'
+import { authContext } from './context/authContext'
 
 export const App = (): JSX.Element => {
-   const [{ isAuth }] = useAuthContext();
-   /* const isAuth = true; */
+   const { isAuth } = useContext(authContext);
 
    return (
    <>

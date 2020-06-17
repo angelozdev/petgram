@@ -4,7 +4,7 @@
   "description": "Crea una aplicación para subir y compartir fotos de mascotas usando Webpack, GraphQL, React Hooks, React Router, SEO y PWAs.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --host 192.168.0.7 --open",
+    "start": "webpack-dev-server --mode development --host 192.168.0.9 --open",
     "build": "webpack --mode production"
   },
   "keywords": [
@@ -47,5 +47,13 @@
     "react-placeholder": "^4.0.3",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angelozam17/petgram.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Angelozam17/petgram/issues"
+  },
+  "homepage": "https://github.com/Angelozam17/petgram#readme"
 }

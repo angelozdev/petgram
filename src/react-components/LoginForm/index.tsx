@@ -1,5 +1,7 @@
-import React, { FormEvent } from 'react';
-import { useAuthContext } from '../../hooks/context/AuthContext';
+import React, { FormEvent, useContext } from 'react';
+
+/* Context */
+import { authContext } from '../../context/authContext';
 
 /* Hooks */
 import { useInputValue } from '../../hooks/seInputValue';
@@ -8,24 +10,20 @@ import { useInputValue } from '../../hooks/seInputValue';
 import { LoginFormStyled } from './styles';
 import { FaUser, FaLock } from 'react-icons/fa';
 
-/* Routes */
-import { useHistory } from 'react-router-dom'
-
 /* Components */
 import { Logo } from '../Logo'
 
 
 export const LoginForm = () => {
-   const [{}, dispath] = useAuthContext()
-   const [{ password, email }, onChange] = useInputValue({ password: '', email: '' })
-   const { push } = useHistory()
+   const { activeAuth } = useContext<any>(authContext)
+   const [{ password, email }, onChange] = useInputValue({ password: 'asdf', email: 'johndoe@email.com' })
 
    const handleOnSubmit = (e: FormEvent) => {
       e.preventDefault()
 
-      password !== '' && email !== ''
-      ? dispath({type: 'ACTIVE_AUTH'})
-      : alert('Debes completar todos los campos.')
+      if(password !== '' && email !== ''){
+         activeAuth()
+      }
    }
 
    return (
@@ -42,6 +40,7 @@ export const LoginForm = () => {
                   id="email"
                   type="email"
                   placeholder="Email"
+                  value={email}
                />
             </div>
 
@@ -55,6 +54,7 @@ export const LoginForm = () => {
                   id="password"
                   type="password"
                   placeholder="Password"
+                  value={password}
                />
             </div>
 

@@ -7,16 +7,16 @@ import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
 
 /* GlobalStates */
-import { AuthContextProvider } from './hooks/context/AuthContext'
+import { GlobalState } from './context/GlobalState'
 
 const client = new ApolloClient({
    uri: 'https://petgram-server-angelozam17.angelozam17.vercel.app/graphql'
 })
 
 render(
-   <AuthContextProvider>
+   <GlobalState>
       <ApolloProvider client={client}>
          <App />
       </ApolloProvider>
-   </AuthContextProvider>,
+   </GlobalState>,
 document.getElementById('root'))
