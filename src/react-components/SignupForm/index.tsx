@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext } from 'react';
+import React, { FormEvent, useContext, SetStateAction } from 'react';
 
 /* Context */
 import { authContext } from '../../context/authContext';
@@ -18,8 +18,11 @@ import { Logo } from '../Logo';
 import { useMutation } from 'react-apollo';
 import { gql, DocumentNode } from 'apollo-boost';
 
+interface IProps {
+   setLogin: (inLogin: SetStateAction<boolean>) => void
+}
 
-export const SignupForm = () => {
+export const SignupForm = ({ setLogin }: IProps) => {
    const { activeAuth } = useContext<any>(authContext)
    const [{ password, email }, onChange] = useInputValue({ password: 'admin123', email: 'johndoe@email.com' });
 
@@ -100,6 +103,9 @@ export const SignupForm = () => {
             <span className="message">
                { error && "User already exists" }
             </span>
+            <button className="btn-change" onClick={() => setLogin(true)}>
+               Ya tengo una cuenta
+            </button>
          </form>
       </FormStyled>
    )

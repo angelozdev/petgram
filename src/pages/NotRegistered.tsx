@@ -1,17 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 /* Components */
 import { SignupForm } from '../react-components/SignupForm';
 import { LoginForm } from '../react-components/LoginForm';
 
-/* Route */
 
 const NotRegistered = () => {
+   const [login, setLogin] = useState(true);
    return (
-      <Fragment>
-         <LoginForm />
-         <SignupForm/>
-      </Fragment>
+      <Fragment>{
+         login
+         ? <LoginForm setLogin={setLogin} />
+         : <SignupForm setLogin={setLogin} />
+      }</Fragment>
    )
 }
 

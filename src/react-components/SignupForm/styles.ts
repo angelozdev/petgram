@@ -77,4 +77,15 @@ export const FormStyled = styled.div`
    .spinner svg{
       animation: 1s ${rotate} ease infinite;
    }
+
+   .btn-change {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: .2rem 1rem;
+      border: none;
+      outline: none;
+      background: none;
+      color: gray;
+      text-decoration: underline;
+   }
 `

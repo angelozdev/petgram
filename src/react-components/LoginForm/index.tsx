@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext } from 'react';
+import React, { FormEvent, useContext, SetStateAction } from 'react';
 
 /* Context */
 import { authContext } from '../../context/authContext';
@@ -18,7 +18,11 @@ import { Logo } from '../Logo';
 import { useMutation } from 'react-apollo';
 import { gql, DocumentNode } from 'apollo-boost';
 
-export const LoginForm = () => {
+interface IProps {
+   setLogin: (isLogin: SetStateAction<boolean>) => void
+}
+
+export const LoginForm = ({ setLogin }: IProps) => {
    const { activeAuth } = useContext<any>(authContext)
    const [{ password, email }, onChange] = useInputValue({ password: 'admin123', email: 'johndoe@email.com' });
 
@@ -85,6 +89,10 @@ export const LoginForm = () => {
             <span className="message">
                { error && "Password or email incorrect" }
             </span>
+
+            <button className="btn-change" onClick={() => setLogin(false)}>
+               ¿No tienes cuenta?
+            </button>
          </form>
       </FormStyled>
    )
