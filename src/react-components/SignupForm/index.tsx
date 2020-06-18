@@ -104,7 +104,7 @@ export const SignupForm = ({ setLogin }: IProps) => {
                { error && "User already exists" }
             </span>
             <button className="btn-change" onClick={() => setLogin(true)}>
-               Ya tengo una cuenta
+               I already have an account.
             </button>
          </form>
       </FormStyled>

@@ -91,7 +91,7 @@ export const LoginForm = ({ setLogin }: IProps) => {
             </span>
 
             <button className="btn-change" onClick={() => setLogin(false)}>
-               ¿No tienes cuenta?
+               You do not have an account?
             </button>
          </form>
       </FormStyled>

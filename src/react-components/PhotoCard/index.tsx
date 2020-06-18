@@ -48,6 +48,5 @@ const PhotoCard = ({ details }: IProps): JSX.Element => {
 }
 
 export default React.memo(PhotoCard, ({ details }, nextProps) => {
-   console.log(details, nextProps.details);
    return details.liked === nextProps.details.liked
 })

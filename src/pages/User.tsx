@@ -10,6 +10,25 @@ import { useHistory } from 'react-router-dom';
 /* SEO */
 import { Helmet } from 'react-helmet'
 
+/* Styles */
+import styled from 'styled-components';
+
+const UserStyled = styled.div`
+   width: 100%;
+   padding: 1rem;
+   text-align: center;
+
+   button {
+      padding: .6rem 2rem;
+      text-transform: uppercase;
+      color: white;
+      background-color: brown;
+      border: none;
+      outline: none;
+      border-radius: 20px;
+   }
+`
+
 const User = () => {
    const { disableAuth } = useContext<any>(authContext);
    const { push } = useHistory()
@@ -24,11 +43,11 @@ const User = () => {
          <Helmet>
             <title>Petgram - Profile</title>
          </Helmet>
-         <div className="">
+         <UserStyled>
             <button onClick={handleClick}>
                LogOut
             </button>
-         </div>
+         </UserStyled>
       </Fragment>
    )
 }
