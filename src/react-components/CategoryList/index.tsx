@@ -8,9 +8,15 @@ import { useFetchData } from '../../hooks/useFetchData';
 import { categories } from '../../../api/db.json';
 
 /* Components */
-import { Category } from '../Category'
+import { Category } from '../Category';
 
-const CategoryListMemo = (): JSX.Element => {
+interface ICategory {
+   id: number,
+   name: string,
+   cover: string,
+}
+
+const CategoryList = (): JSX.Element => {
    const { data, isLoading } = useFetchData(categories);
 
    return (
@@ -18,14 +24,14 @@ const CategoryListMemo = (): JSX.Element => {
          <ul>
             {
                isLoading
-               ? new Array(6).fill('').map((item, i) => (
+               ? new Array(6).fill('').map((_item, i) => (
                   <li key={i}>
                      <Category />
                   </li>
                ))
-               : data.map(category => (
-                  <li key={category.id}>
-                     <Category details={{...category}}/>
+               : data.map(({ id, name, cover }: ICategory) => (
+                  <li key={ id }>
+                     <Category details={{ id, name, cover }}/>
                   </li>
                ))
             }
@@ -34,4 +40,4 @@ const CategoryListMemo = (): JSX.Element => {
    )
 }
 
-export const CategoryList = React.memo(CategoryListMemo)
+export default React.memo(CategoryList)

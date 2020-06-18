@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Components */
-import { PhotoCard } from "../react-components/PhotoCard";
+import PhotoCard from "../react-components/PhotoCard";
 
 /* GraphQL and Apollo */
 import { gql } from "apollo-boost";
@@ -33,7 +33,7 @@ interface IProps {
 
 export const Details = ({ match }: IProps): JSX.Element => {
    const { id } = match.params;
-   const { data, loading } = useQuery(GET_SINGLE_PHOTO, {variables: {id}})
+   const { data, loading } = useQuery(GET_SINGLE_PHOTO, { variables: { id } })
 
    return (
       <ReactPlaceholder

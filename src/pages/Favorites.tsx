@@ -5,7 +5,7 @@ import { useQuery } from 'react-apollo';
 import { gql, DocumentNode } from 'apollo-boost';
 
 /* COmponents */
-import { PhotoCard } from '../react-components/PhotoCard';
+import PhotoCard from '../react-components/PhotoCard';
 
 /* Styles */
 import { PhotoCardPlaceholder } from '../react-components/PhotoCard/PhotoCardPlaceholder';

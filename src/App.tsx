@@ -7,7 +7,7 @@ import { GlobalStyle } from './styles/global';
 import { Layout } from './react-components/Layout';
 
 /* Pages */
-import { Home } from './pages/Home';
+import Home from './pages/Home';
 import { Details } from './pages/Details';
 import { Favorites } from "./pages/Favorites";
 import { NotRegistered } from "./pages/NotRegistered";

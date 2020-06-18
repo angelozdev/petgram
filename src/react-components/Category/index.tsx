@@ -5,11 +5,11 @@ import { CategoryStyled } from "./styles";
 
 interface IProps {
    details?: {
-      id   : number,
-      name : string,
-      emoji: string,
-      cover: string,
-      path : string
+      id    : number,
+      name  : string,
+      emoji?: string,
+      cover : string,
+      path? : string
    }
 }
 

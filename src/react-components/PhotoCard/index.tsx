@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 /* Styles */
 import { PhotoCardStyled } from './styles';
@@ -16,19 +16,17 @@ interface IProps {
    details?: {
       id: number,
       likes: number,
-      categoryId: number,
-      userId: number,
+      categoryId?: number,
+      userId?: number,
       src: string,
       liked: boolean
    }
 }
 
-export const PhotoCard = ({ details }: IProps): JSX.Element => {
+const PhotoCard = ({ details }: IProps): JSX.Element => {
    const {
       id,
       likes = 0,
-      categoryId,
-      userId,
       src,
       liked
    } = details || {};
@@ -37,17 +35,19 @@ export const PhotoCard = ({ details }: IProps): JSX.Element => {
 
    return (
       <PhotoCardStyled ref={article}>
-         {
-            show &&
-            <>
-               <Link to={`/detail/${id}`}>
-                  <figure>
-                     <img loading="lazy" src={src} alt={`photo by ${id}`}/>
-                  </figure>
-               </Link>
-               <LikeButton liked={liked} likes={likes} id={id}/>
-            </>
-         }
+         { show && <Fragment>
+            <Link to={`/detail/${ id }`}>
+               <figure>
+                  <img loading="lazy" src={ src } alt={`photo by ${ id }`}/>
+               </figure>
+            </Link>
+            <LikeButton liked={ liked } likes={ likes } id={ id }/>
+         </Fragment> }
       </PhotoCardStyled>
    )
 }
+
+export default React.memo(PhotoCard, ({ details }, nextProps) => {
+   console.log(details, nextProps.details);
+   return details.liked === nextProps.details.liked
+})

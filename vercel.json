@@ -1,0 +1,25 @@
+{
+   "name": "petgram",
+   "version": 1,
+   "alias": ["petgram.com", "petgram"],
+   "routes": [
+      {
+         "src": "/.*",
+         "dest": "index.html"
+      },
+      {
+			"src": "(.*).js",
+			"dest": "/$1.js"
+		},
+		{
+			"src": "(.*).json",
+			"dest": "/$1.json"
+		}
+   ],
+   "builds": [
+      {
+         "use": "npm run build",
+         "src": "package.json"
+      }
+   ]
+}
