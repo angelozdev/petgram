@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, Suspense, lazy } from 'react';
 
 /* Styles */
 import { GlobalStyle } from './styles/global';
@@ -7,12 +7,13 @@ import { GlobalStyle } from './styles/global';
 import { Layout } from './react-components/Layout';
 
 /* Pages */
-import Home from './pages/Home';
-import { Details } from './pages/Details';
-import { Favorites } from "./pages/Favorites";
-import { NotRegistered } from "./pages/NotRegistered";
-import { User } from './pages/User';
-import { NotFound } from './pages/NotFound'
+const Details = lazy(() => import('./pages/Details'))
+const Favorites = lazy(() => import('./pages/Favorites'))
+const Home = lazy(() => import('./pages/Home'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const NotRegistered = lazy(() => import('./pages/NotRegistered'))
+const User = lazy(() => import('./pages/User'))
+import Fallback from './react-components/Fallback';
 
 /* Router */
 import {
@@ -28,7 +29,7 @@ export const App = (): JSX.Element => {
    const { isAuth } = useContext<any>(authContext);
 
    return (
-   <>
+   <Suspense fallback={<Fallback />}>
       <GlobalStyle />
       {
          isAuth
@@ -51,7 +52,7 @@ export const App = (): JSX.Element => {
             </Switch>
          </Router>)
       }
-   </>
+   </Suspense>
    )
 }
 

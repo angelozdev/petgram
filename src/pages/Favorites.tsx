@@ -26,7 +26,7 @@ const GET_FAVS: DocumentNode = gql`
    }
 `
 
-export const Favorites = () => {
+const Favorites = () => {
    const { data, loading } = useQuery(GET_FAVS, {fetchPolicy: 'network-only'});
 
    return (
@@ -45,3 +45,5 @@ export const Favorites = () => {
       </ReactPlaceholder>
    )
 }
+
+export default Favorites;

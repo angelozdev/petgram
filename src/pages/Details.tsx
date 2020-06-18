@@ -31,7 +31,7 @@ interface IProps {
    }
 }
 
-export const Details = ({ match }: IProps): JSX.Element => {
+const Details = ({ match }: IProps): JSX.Element => {
    const { id } = match.params;
    const { data, loading } = useQuery(GET_SINGLE_PHOTO, { variables: { id } })
 
@@ -44,3 +44,5 @@ export const Details = ({ match }: IProps): JSX.Element => {
       </ReactPlaceholder>
    )
 }
+
+export default Details;

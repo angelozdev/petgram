@@ -10,7 +10,7 @@ import { useHistory } from 'react-router-dom';
 /* SEO */
 import { Helmet } from 'react-helmet'
 
-export const User = () => {
+const User = () => {
    const { disableAuth } = useContext<any>(authContext);
    const { push } = useHistory()
 
@@ -32,3 +32,5 @@ export const User = () => {
       </Fragment>
    )
 }
+
+export default User;

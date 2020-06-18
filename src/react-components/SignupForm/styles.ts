@@ -1,13 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { rotate } from '../../styles/animations'
 
-const rotate = keyframes`
-   from {
-      transform: rotate(0deg);
-   }
-   to {
-      transform: rotate(360deg);
-   }
-`
 
 export const FormStyled = styled.div`
    height: 100vh;

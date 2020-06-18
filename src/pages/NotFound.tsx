@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
-export const NotFound = () => {
+const NotFound = () => {
    return (
       <Fragment>
          <h1>No encontré lo que buscabas :/</h1>
@@ -11,3 +11,5 @@ export const NotFound = () => {
       </Fragment>
    )
 }
+
+export default NotFound;

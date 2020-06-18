@@ -14,12 +14,12 @@ import { Link } from 'react-router-dom';
 
 interface IProps {
    details?: {
-      id: number,
-      likes: number,
+      id         : number,
+      likes      : number,
       categoryId?: number,
-      userId?: number,
-      src: string,
-      liked: boolean
+      userId?    : number,
+      src        : string,
+      liked      : boolean
    }
 }
 

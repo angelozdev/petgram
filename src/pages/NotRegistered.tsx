@@ -6,7 +6,7 @@ import { LoginForm } from '../react-components/LoginForm';
 
 /* Route */
 
-export const NotRegistered = () => {
+const NotRegistered = () => {
    return (
       <Fragment>
          <LoginForm />
@@ -14,3 +14,5 @@ export const NotRegistered = () => {
       </Fragment>
    )
 }
+
+export default NotRegistered;

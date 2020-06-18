@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
    entry: './src/index.tsx',
@@ -24,8 +25,8 @@ module.exports = {
                loader: 'babel-loader',
                options: {
                   presets: [
-                     '@babel/preset-typescript', 
-                     '@babel/preset-react', 
+                     '@babel/preset-typescript',
+                     '@babel/preset-react',
                      '@babel/preset-env'
                   ]
                }
@@ -42,9 +43,27 @@ module.exports = {
          template: './public/index.html',
          filename: 'index.html'
       }),
+      new FaviconsWebpackPlugin('./public/icon.png'),
       new MiniCssExtractPlugin({
          filename: 'assets/[name].css'
       }),
-      new FaviconsWebpackPlugin('./public/favicon.png')
+      new WorkboxWebpackPlugin.GenerateSW({
+         runtimeCaching: [
+            {
+               urlPattern: new RegExp('https://(res.cloudinary.com|images.unsplash.com)'),
+               handler: 'CacheFirst',
+               options: {
+                  cacheName: 'images'
+               }
+            },
+            {
+               urlPattern: new RegExp('https://petgram-server-angelozam17.angelozam17.vercel.app/'),
+               handler: 'NetworkFirst',
+               options: {
+                  cacheName: 'api'
+               }
+            }
+         ]
+      })
    ]
 }
