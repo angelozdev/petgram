@@ -40,7 +40,8 @@ _Technologies used in the frontend.:_
 - **GraphQL** is a query language for APIs and a runtime for fulfilling those queries with your existing data.
 
 ## Preview
-![](./screenshot.png)
+
+<img src="./screenshot.png" width="50%" />
 
 ## License
 
