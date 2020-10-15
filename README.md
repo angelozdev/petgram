@@ -1,6 +1,6 @@
 # Petgram
 
-_Muvick is an instagram clone for pets._
+_Petgram is an instagram clone for pets._
 
 ## Starting
 
